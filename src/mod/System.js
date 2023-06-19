@@ -1,11 +1,8 @@
-import { ModType } from "./ModType";
-
-export default {
+module.exports = {
     name: "System",
-    method: (line: String) => {
+    method: (line) => {
         const keyword = line.split(' ')[0];
         const args = line.split(' ');
-        console.log(line)
         if (line.startsWith('extuse')) {
             // Loading an extension, is it from us?
             if (args[0].startsWith('js_')) {
@@ -15,7 +12,9 @@ export default {
                 return; // The extension is not going to be used here
             }
         } else if (line.startsWith('coitusinterruptus')) {
-            return "console.log(" + args[0] + ")"
+            const startStr = line.split("'")[0];
+            const endStr = line.split("'")[1];
+            return "console.log(" +  + ")"
         }
     }
 }

@@ -1,11 +1,7 @@
-import { readFileSync, readdirSync } from 'fs';
-import { ModType } from './mod/ModType';
-const Modules: any = [];
-let outStr: String = "//Redditlang Interpreter v0\n";
+const fs = require('fs');
+let outStr = "//Redditlang Interpreter v0\n";
 
-Modules.push();
-
-readFileSync("main.redditlang").toString().split('\n').forEach(line => {
+fs.readFileSync("main.redditlang").toString().split('\n').forEach(line => {
     // Parse the line
     const output = require('./mod/System').method(line);
     outStr += output+"\n";
