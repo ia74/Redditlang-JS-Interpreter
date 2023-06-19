@@ -45,9 +45,9 @@ module.exports = {
         } else if(line.startsWith("si")) {
             return `}`
         } else if(line.startsWith('repeatdatshid')) {
-            return `(async() => { while(true) {`
+            return `a = async () => { while(true) {`
         } else if (line.startsWith('sthu')) {
-            return `} })();`
+            return `} }; a()`
         } else if (line.startsWith('pulloutn\'t')) {
             return `${line.split(' ')[1]} = a('');`
         } else if (line.startsWith('myguy')) {
