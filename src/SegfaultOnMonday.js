@@ -6,6 +6,7 @@ module.exports = () => {
         // Simulation inbound.
         num = Math.random()
         if (num > 0.5) {
+            console.log('Mondays amirite?')
             console.log('Segmentation fault (core dumped)');
             process.exit(1);
         } else {
@@ -18,6 +19,7 @@ module.exports = () => {
         // Simulation inbound.
         num = Math.random()
         if (num > 0.25) {
+            console.log('Sundays amirite?')
             console.log('Segmentation fault (core dumped)');
             process.exit(1);
         } else {
