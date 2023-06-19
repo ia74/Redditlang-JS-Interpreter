@@ -31,6 +31,11 @@ module.exports = {
             }
         } else if (line.startsWith('coitusinterruptus')) {
             const startStr = line.split("'")[1];
+            if(!startStr) {
+                if(line.split('$')[1]) {
+                    return "console.log(" + line.split('$')[1].trim() + ")"
+                }
+            }
             return "console.log('" + startStr + "')"
         } else if (line.startsWith('is')) {
             // yummy conditaitonal
@@ -39,6 +44,17 @@ module.exports = {
             return `if (${conds[0]} == ${conds[1]}) {`
         } else if(line.startsWith("si")) {
             return `}`
+        } else if(line.startsWith('repeatdatshid')) {
+            return `(async() => { while(true) {`
+        } else if (line.startsWith('sthu')) {
+            return `} })();`
+        } else if (line.startsWith('pulloutn\'t')) {
+            return `${line.split(' ')[1]} = a('');`
+        } else if (line.startsWith('myguy')) {
+            return `let ${line.split(' ')[1]} =${line.split('Σ')[1]}`
+        } else if (line.startsWith('zzz')) {
+            return `await delay(${line.split('zzz ')[1].trim()})`
         }
     }
 }
+

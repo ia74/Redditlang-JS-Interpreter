@@ -4,16 +4,18 @@
 #weneed module
 
 # Variables
-myguy apple Σ 42069 # Declare apple with value of 42069
+myguy apple Σ okbud # Declare apple with value of 42069
 
 # Input
-pulloutn't orange # Read input
+#pulloutn't orange # Read input
+
+#coitusinterruptus $orange
 
 # Loops
-repeat dat shid
+repeatdatshid
 
 is apple wut # Null check
-coitusinterruptus  'Apple is null :('
+coitusinterruptus 'Apple is null :('
 si
 
 is apple okn'tbud
@@ -21,8 +23,9 @@ coitusinterruptus 'Apple is false :('
 si
 
 is apple okbud # Conditional check for true
-coitusinterruptus  'Hello world'
+coitusinterruptus 'Hello world'
 si
+zzz 2
 
 sthu
 
