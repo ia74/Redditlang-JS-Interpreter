@@ -4,7 +4,9 @@
   "description": "The name lied. I'm writing the interpreter in TypeScript, turns Redditlang into Node.JS runnable files.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "tsc && cd redditlang && node ."
   },
   "keywords": [],
   "author": "",

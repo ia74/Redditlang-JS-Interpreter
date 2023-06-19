@@ -5,6 +5,7 @@ export default {
     method: (line: String) => {
         const keyword = line.split(' ')[0];
         const args = line.split(' ');
+        console.log(line)
         if (line.startsWith('extuse')) {
             // Loading an extension, is it from us?
             if (args[0].startsWith('js_')) {
