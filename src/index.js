@@ -1,8 +1,11 @@
 const fs = require('fs');
+const checkMonday = require('./SegfaultOnMonday');
 let outStr = `
 a = require('prompt-sync')()
 const delay = ms => new Promise(res => setTimeout(res, ms));
 `;
+
+checkMonday();
 
 fs.readFileSync("main.redditlang").toString().split('\n').forEach(line => {
     // Parse the line
