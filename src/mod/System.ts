@@ -1,6 +1,6 @@
 import { ModType } from "./ModType";
 
-export const System: ModType = {
+export default {
     name: "System",
     method: (line: String) => {
         const keyword = line.split(' ')[0];
@@ -9,10 +9,12 @@ export const System: ModType = {
             // Loading an extension, is it from us?
             if (args[0].startsWith('js_')) {
                 // yippee it's from us!
-                return { load: args[0] };
+                return "require('" + args[0] + "')";
             } else {
                 return; // The extension is not going to be used here
             }
+        } else if (line.startsWith('coitusinterruptus')) {
+            return "console.log(" + args[0] + ")"
         }
     }
 }

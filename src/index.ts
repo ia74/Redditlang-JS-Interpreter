@@ -1,12 +1,18 @@
 import { readFileSync, readdirSync } from 'fs';
 import { ModType } from './mod/ModType';
-const Modules: Map<String, ModType> = new Map();
+const Modules: ModType[] = [];
+let outStr: String = "//Redditlang Interpreter v0";
 
-Modules.set("System", require('./mod/System'));
+Modules.push(require('./mod/System'));
 
 readFileSync("main.redditlang").toString().split('\n').forEach(line => {
     // Parse the line
-    const Sys = Modules.get("System");
-    Sys.method(line);
+
+    Modules.forEach(mod => {
+        if(mod.name == "System") {
+            const output = mod.method(line);
+        }
+    })
+
 
 });
