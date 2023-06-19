@@ -4,9 +4,8 @@ module.exports = () => {
         // It's monday.
         // Because this is JavaScript, I'm not too sure how to segfault it intentionally.
         // Simulation inbound.
-        num = Math.floor(Math.random() * 1)
-        console.log(num)
-        if (num > 0.2) {
+        num = Math.random()
+        if (num > 0.5) {
             console.log('Segmentation fault (core dumped)');
             process.exit(1);
         } else {
