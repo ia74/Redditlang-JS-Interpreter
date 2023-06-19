@@ -13,18 +13,22 @@ pulloutn't orange # Read input
 repeat dat shid
 
 is apple wut # Null check
-coitusinterruptus "Apple is null :("
+coitusinterruptus  'Apple is null :('
+si
+
+is apple okn'tbud
+coitusinterruptus 'Apple is false :('
 si
 
 is apple okbud # Conditional check for true
-coitusinterruptus "Hello world"
+coitusinterruptus  'Hello world'
 si
 
 sthu
 
 # Functions
 callmeonmycellphone cook(arg1) {
-coitusinterruptus "We need" + arg1
+coitusinterruptus  'We need' + arg1
 }
 
 # Classes

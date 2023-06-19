@@ -12,9 +12,8 @@ module.exports = {
                 return; // The extension is not going to be used here
             }
         } else if (line.startsWith('coitusinterruptus')) {
-            const startStr = line.split("'")[0];
-            const endStr = line.split("'")[1];
-            return "console.log(" +  + ")"
+            const startStr = line.split("'")[1];
+            return "console.log('" + startStr + "')"
         }
     }
 }
