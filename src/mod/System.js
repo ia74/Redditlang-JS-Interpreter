@@ -60,7 +60,8 @@ module.exports = {
         } else if (line.startsWith('myguy')) {
             return `let ${line.split(' ')[1]} =${line.split('Σ')[1]}`
         } else if (line.startsWith('zzz')) {
-            return `await delay(${line.split('zzz ')[1].trim()})`
+            c = randLetter(2);
+            return `b${c} = async() => { await delay(${line.split('zzz ')[1].trim()}); }; b${c}()`
         } else if (line.startsWith('callmeonmycellphone')) {
             return `function ${line.split('callmeonmycellphone ')[1].trim()}`
         } else if (line.startsWith('}')) {
@@ -78,3 +79,14 @@ module.exports = {
     }
 }
 
+function randLetter(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}

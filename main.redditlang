@@ -1,47 +1,7 @@
-# Module import
-#bringme module
-# or
-#weneed module
+coitusinterruptus 'Hello chat'
+zzz 3000
 
-# Variables
-myguy apple Σ 42069 # Declare apple with value of 42069
-
-# Input
-pulloutn't orange # Read input
-
-call cook("hi")
-
-coitusinterruptus $orange
-
-# Loops
-repeatdatshid
-
-is apple wut # Null check
-coitusinterruptus 'Apple is null :('
-si
-
-is apple okn'tbud
-coitusinterruptus 'Apple is false :('
-si
-
-is apple okbud # Conditional check for true
-coitusinterruptus 'Hello world!'
-si
-zzz 2
-
+repeatdatshid # Start a forever loop
+coitusinterruptus 'Hello reddit' #send that
+zzz 2000 #Currently broken :sob:
 sthu
-
-# Functions
-callmeonmycellphone cook(arg1) {
-coitusinterruptus 'We need $arg1'
-}
-
-# Classes
-school Lab {
-~snoRt() {
-# Default constructor
-}
-cooK() {
-# Default destructor
-}
-}
