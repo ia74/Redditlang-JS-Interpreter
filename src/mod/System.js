@@ -31,10 +31,17 @@ module.exports = {
             }
         } else if (line.startsWith('coitusinterruptus')) {
             const startStr = line.split("'")[1];
-            if(!startStr) {
-                if(line.split('$')[1]) {
+            if (!startStr) {
+                if (line.split('$')[1]) {
                     return "console.log(" + line.split('$')[1].trim() + ")"
                 }
+            }
+            if(startStr.includes('$')) {
+                // make that var
+                variable = '\' + '+ startStr.split('$')[1].split(' ')[0] + ' + \'';
+                fullvar = startStr.split('$')[1].split(' ')[0];
+                startStr2 = startStr.replace('$'+fullvar, variable);
+                return "console.log('" + startStr2 + "')"
             }
             return "console.log('" + startStr + "')"
         } else if (line.startsWith('is')) {
@@ -42,9 +49,9 @@ module.exports = {
             const checking = line.split('is ')[1].trim();
             const conds = checking.split(' ');
             return `if (${conds[0]} == ${conds[1]}) {`
-        } else if(line.startsWith("si")) {
+        } else if (line.startsWith("si")) {
             return `}`
-        } else if(line.startsWith('repeatdatshid')) {
+        } else if (line.startsWith('repeatdatshid')) {
             return `a = async () => { while(true) {`
         } else if (line.startsWith('sthu')) {
             return `} }; a()`
@@ -54,6 +61,19 @@ module.exports = {
             return `let ${line.split(' ')[1]} =${line.split('Σ')[1]}`
         } else if (line.startsWith('zzz')) {
             return `await delay(${line.split('zzz ')[1].trim()})`
+        } else if (line.startsWith('callmeonmycellphone')) {
+            return `function ${line.split('callmeonmycellphone ')[1].trim()}`
+        } else if (line.startsWith('}')) {
+            return `}`
+        } else if (line.startsWith('school')) {
+            return `class ${line.split('school ')[1]}`
+        } else if (line.startsWith('~snoRt(')) {
+            return `constructor(${line.split('(')[1].trim()}`
+        } else if (line.startsWith('call')) {
+            return `${line.split('call ')[1]}`
+        }
+        else {
+            return line;
         }
     }
 }

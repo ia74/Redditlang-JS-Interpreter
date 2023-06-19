@@ -4,10 +4,12 @@
 #weneed module
 
 # Variables
-myguy apple Σ okbud # Declare apple with value of 42069
+myguy apple Σ 42069 # Declare apple with value of 42069
 
 # Input
 pulloutn't orange # Read input
+
+call cook("hi")
 
 coitusinterruptus $orange
 
@@ -23,7 +25,7 @@ coitusinterruptus 'Apple is false :('
 si
 
 is apple okbud # Conditional check for true
-coitusinterruptus 'Hello world'
+coitusinterruptus 'Hello world!'
 si
 zzz 2
 
@@ -31,7 +33,7 @@ sthu
 
 # Functions
 callmeonmycellphone cook(arg1) {
-coitusinterruptus  'We need' + arg1
+coitusinterruptus 'We need $arg1'
 }
 
 # Classes
