@@ -1,4 +1,4 @@
-const getInvalidWords = require("../Redditmod");
+const getInvalidWords = require("../util/Redditmod");
 
 module.exports = {
     name: "System",

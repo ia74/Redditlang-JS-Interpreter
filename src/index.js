@@ -2,7 +2,8 @@ const DEBUG_MODE = true;
 const dbglog = (m, f="Debugger") => { if(DEBUG_MODE) { console.log(`[Debug/${f}] ${m}`) } }
 
 const fs = require('fs');
-const checkMonday = require('./SegfaultOnMonday');
+const checkMonday = require('./util/SegfaultOnMonday');
+const path = require('path');
 let outStr = `
 a = require('prompt-sync')()
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -14,7 +15,7 @@ dbglog('Checking if today is Monday/Sunday..')
 checkMonday();
 dbglog('Check passed, starting compilation')
 
-fs.readFileSync("main.redditlang").toString().split('\n').forEach(line => {
+fs.readFileSync(path.resolve(__dirname, "./rlFiles/main.redditlang")).toString().split('\n').forEach(line => {
     // Parse the line
     const output = require('./mod/System').method(line);
     String(output).trim();
