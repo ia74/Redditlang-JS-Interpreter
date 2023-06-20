@@ -1,3 +1,5 @@
+const getInvalidWords = require("../Redditmod");
+
 module.exports = {
     name: "System",
     method: (line) => {
@@ -63,7 +65,23 @@ module.exports = {
             c = randLetter(2);
             return `b${c} = async() => { await delay(${line.split('zzz ')[1].trim()}); }; b${c}()`
         } else if (line.startsWith('callmeonmycellphone')) {
-            return `function ${line.split('callmeonmycellphone ')[1].trim()}`
+            const w = getInvalidWords();
+            const functionName = line.split('callmeonmycellphone ')[1].split('(')[0];
+            let BAD = false;
+            w.forEach(wdef => {
+                if(wdef.word == functionName) {
+                    if(Math.random() * wdef.weight > 0.5) {
+                        BAD = true;
+                    }
+                }
+            })
+            const functionAll = line.split('callmeonmycellphone ')[1].trim();
+
+            if(BAD) {
+                return `function ${functionAll} console.log('Error: invalid opinion.');`
+            }
+
+            return `function ${functionAll}`
         } else if (line.startsWith('}')) {
             return `}`
         } else if (line.startsWith('school')) {
