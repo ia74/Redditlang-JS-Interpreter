@@ -32,12 +32,13 @@ parseList.forEach(f => {
         modList.forEach(mod => {
             const fileData = {};
             const output = mod.method(line, fileData);
-            if(output['data']) {
+            if(typeof output == "object") {
+                console.log(output)
                 fileData[output.data.key] = output.data.value
-                if(output.data.codeStr) {
-                    String(output.data.codeStr).trim();
-                    if(String(output.data.codeStr).startsWith("undefined") || output.data.codeStr == "") return;
-                    outStr += output.data.codeStr+"\n";
+                if(output.data.codestr) {
+                    String(output.data.codestr).trim();
+                    if(String(output.data.codestr).startsWith("undefined") || output.data.codestr == "") return;
+                    outStr += output.data.codestr+"\n";
                 }
                 return;
             }
