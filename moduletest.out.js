@@ -5,4 +5,3 @@ b = () => {const today = new Date().getDay();if(today == 1) {num = Math.random()
 b()
 function testMod() {
 }
-require('C:\\Users\\Aiden\\Documents\\Redditlang-JS-Interpreter\\moduletest.out.js')

@@ -2,7 +2,7 @@ const getInvalidWords = require("../util/Redditmod");
 
 module.exports = {
     name: "System",
-    method: (line) => {
+    method: (line, fileData) => {
         const keyword = line.split(' ')[0];
         const args = line.split(' ');
         // Remove comments just cause
@@ -94,7 +94,7 @@ module.exports = {
             return `${line.split('call ')[1]}`
         }
         else {
-            return line;
+            return;
         }
     }
 }

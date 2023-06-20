@@ -15,13 +15,37 @@ dbglog('Checking if today is Monday/Sunday..')
 checkMonday();
 dbglog('Check passed, starting compilation')
 
-fs.readFileSync(path.resolve(__dirname, "./rlFiles/main.redditlang")).toString().split('\n').forEach(line => {
-    // Parse the line
-    const output = require('./mod/System').method(line);
-    String(output).trim();
-    if(String(output).startsWith("undefined") || output == "") return;
-    outStr += output+"\n";
-});
+const modList = [
+    require('./mod/System'),
+    require('./mod/Modularity')
+];
 
-fs.writeFileSync('main.out.js', outStr)
-console.log('Wrote output to main.out.js!')
+const parseList = [
+    // THESE MUST BE IN ORDER OF REQUIRE!
+    {path: path.resolve(__dirname, "./rlFiles/moduletest.redditlang"), name: 'moduletest'},
+    {path: path.resolve(__dirname, "./rlFiles/main.redditlang"), name: 'main'}
+]
+
+parseList.forEach(f => {
+    fs.readFileSync(f.path).toString().split('\n').forEach(line => {
+        // Parse the line
+        modList.forEach(mod => {
+            const fileData = {};
+            const output = mod.method(line, fileData);
+            if(output['data']) {
+                fileData[output.data.key] = output.data.value
+                if(output.data.codeStr) {
+                    String(output.data.codeStr).trim();
+                    if(String(output.data.codeStr).startsWith("undefined") || output.data.codeStr == "") return;
+                    outStr += output.data.codeStr+"\n";
+                }
+                return;
+            }
+            String(output).trim();
+            if(String(output).startsWith("undefined") || output == "") return;
+            outStr += output+"\n";
+        })
+    });
+    fs.writeFileSync(f.name+'.out.js', outStr)
+    console.log('Wrote output to main.out.js!')
+})
