@@ -22,12 +22,27 @@ const invalid = {
             'cheese is a right wing fantasy creation to control the left' 
         ],
         weight: [
-            
+            0.5,
+            1,
+            1
         ]
     }
 }
+const words = [];
 
-Object.keys(invalid).forEach(user => {
-    let userOpinions = invalid[user];
-    console.log(user, 'thinks', userOpinions)
-})
+function getInvalidWords() {
+    Object.keys(invalid).forEach(user => {
+        let userOpinions = invalid[user];
+        let i = 0;
+        userOpinions.opinions.forEach(op => {
+            op.split(' ').forEach(word => {
+                words.push({ word, weight: userOpinions['weight'][i]})
+            })
+            i++;
+        });
+    })
+    return words;
+}
+
+
+module.exports = getInvalidWords;
