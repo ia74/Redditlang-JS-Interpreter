@@ -22,5 +22,5 @@ fs.readFileSync("main.redditlang").toString().split('\n').forEach(line => {
     outStr += output+"\n";
 });
 
-fs.writeFileSync('main.redditlang.out.js', outStr)
-console.log('Wrote output to main.redditlang.out.js!')
+fs.writeFileSync('main.out.js', outStr)
+console.log('Wrote output to main.out.js!')

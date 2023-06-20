@@ -5,6 +5,7 @@
 
 # Variables
 myguy apple Σ 42069 # Declare apple with value of 42069
+foLAMO banan Σ "Hi" # Declare constant banan with value of "Hi"
 
 # Input
 pulloutn't orange # Read input

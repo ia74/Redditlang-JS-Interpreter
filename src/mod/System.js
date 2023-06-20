@@ -61,6 +61,8 @@ module.exports = {
             return `${line.split(' ')[1]} = a('');`
         } else if (line.startsWith('myguy')) {
             return `let ${line.split(' ')[1]} =${line.split('Σ')[1]}`
+        } else if (line.startsWith('foLAMO')) {
+            return `const ${line.split(' ')[1]} =${line.split('Σ')[1]}`
         } else if (line.startsWith('zzz')) {
             c = randLetter(2);
             return `b${c} = async() => { await delay(${line.split('zzz ')[1].trim()}); }; b${c}()`
