@@ -12,8 +12,8 @@ checkMonday();
 dbglog('Check passed, starting compilation')
 
 const modList = [
-    require('./mod/System'),
-    require('./mod/Modularity')
+    './mod/System',
+    './mod/Modularity'
 ];
 
 const parseList = [
@@ -26,6 +26,8 @@ parseList.forEach(f => {
     fs.readFileSync(f.path).toString().split('\n').forEach(line => {
         // Parse the line
         modList.forEach(mod => {
+            delete require.cache[require.resolve(mod)];
+            mod = require(mod);
             const fileData = {};
             const output = mod.method(line, fileData);
             if(typeof output == "object") {
