@@ -33,7 +33,6 @@ parseList.forEach(f => {
             const fileData = {};
             const output = mod.method(line, fileData);
             if(typeof output == "object") {
-                console.log(output)
                 fileData[output.data.key] = output.data.value
                 if(output.data.codestr) {
                     String(output.data.codestr).trim();
@@ -48,5 +47,5 @@ parseList.forEach(f => {
         })
     });
     fs.writeFileSync(f.name+'.out.js', outStr)
-    console.log('Wrote output to main.out.js!')
+    console.log('Wrote output to '+f.name+'.out.js!')
 })

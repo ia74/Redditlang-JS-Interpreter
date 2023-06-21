@@ -3,3 +3,5 @@ subred ModTest
 callmeonmycellphone testMod() {
     coitusinterruptus 'It works!'
 }
+
+export testMod
