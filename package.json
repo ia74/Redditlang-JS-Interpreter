@@ -1,6 +1,6 @@
 {
   "name": "redditlang-js-interpreter",
-  "version": "1.0.0",
+  "version": "0.4.0",
   "description": "The name lied. I'm writing the interpreter in TypeScript, turns Redditlang into Node.JS runnable files.",
   "main": "src/index.js",
   "scripts": {

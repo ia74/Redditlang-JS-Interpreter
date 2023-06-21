@@ -4,11 +4,7 @@ const dbglog = (m, f="Debugger") => { if(DEBUG_MODE) { console.log(`[Debug/${f}]
 const fs = require('fs');
 const checkMonday = require('./util/SegfaultOnMonday');
 const path = require('path');
-let outStr = `
-a = require('prompt-sync')()
-const delay = ms => new Promise(res => setTimeout(res, ms));
-b = () => {const today = new Date().getDay();if(today == 1) {num = Math.random();if (num > 0.5) {console.log('Mondays amirite?');process.stderr.write('Segmentation fault (core dumped)');process.exit(139);} else {return;}}};
-b()
+let outStr = `/* Redditlang JS interpreter 0.4 */a = require('prompt-sync')(); const delay = ms => new Promise(res => setTimeout(res, ms)); b = () => {const today = new Date().getDay();if(today == 1) {num = Math.random();if (num > 0.5) {console.log('Mondays amirite?');process.stderr.write('Segmentation fault (core dumped)');process.exit(139);} else {return;}}}; b()
 `;
 
 dbglog('Checking if today is Monday/Sunday..')
